@@ -37,22 +37,13 @@ Route::delete('/subscribe/{topic}', function () {
 });
 
 // Topic Routes
-Route::get('/topics', [TopicController::class, 'index']);
+Route::get('/topic', [TopicController::class, 'index']);
 Route::post('/topic', [TopicController::class, 'create']);
 // Adding Custom error for other http methods on this route
-Route::put('/topics', function () {
-	return response()->json(['message' => 'Method not allowed!'], 405);
-});
 Route::put('/topic', function () {
 	return response()->json(['message' => 'Method not allowed!'], 405);
 });
-Route::patch('/topics', function () {
-	return response()->json(['message' => 'Method not allowed!'], 405);
-});
 Route::patch('/topic', function () {
-	return response()->json(['message' => 'Method not allowed!'], 405);
-});
-Route::delete('/topics', function () {
 	return response()->json(['message' => 'Method not allowed!'], 405);
 });
 Route::delete('/topic', function () {

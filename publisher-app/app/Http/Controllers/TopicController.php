@@ -17,9 +17,14 @@ class TopicController extends Controller
     {
     	// Validation
     	$input = $request->all();
+        Validator::extend('without_spaces', function($attr, $value){
+            return preg_match('/^\S*$/u', $value);
+        });
 
     	$validator = Validator::make($input, [
-            'name' => ['required', 'string', 'unique:topics']
+            'name' => ['required', 'string', 'unique:topics', 'without_spaces']
+        ], [
+            'name.without_spaces' => 'Whitespace not allowed.'
         ]);
 
         if ($validator->fails()) {
