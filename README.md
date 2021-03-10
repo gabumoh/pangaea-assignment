@@ -41,44 +41,44 @@ This endpoint is responsible for listing all topics available, it is paginated t
 
 + Response 200 (application/json)
 
-		{
-			"current_page": 1,
-		    "data": [
-		        {
-		            "name": "test"
-		        },
-		        {
-		            "name": "test1"
-		        }
-		    ],
-		    "first_page_url": "http://127.0.0.1:8000/topics?page=1",
-		    "from": 1,
-		    "last_page": 1,
-		    "last_page_url": "http://127.0.0.1:8000/topics?page=1",
-		    "links": [
-		        {
-		            "url": null,
-		            "label": "&laquo; Previous",
-		            "active": false
-		        },
-		        {
-		            "url": "http://127.0.0.1:8000/topics?page=1",
-		            "label": "1",
-		            "active": true
-		        },
-		        {
-		            "url": null,
-		            "label": "Next &raquo;",
-		            "active": false
-		        }
-		    ],
-		    "next_page_url": null,
-		    "path": "http://127.0.0.1:8000/topics",
-		    "per_page": 25,
-		    "prev_page_url": null,
-		    "to": 2,
-		    "total": 2
-		}
+			{
+				"current_page": 1,
+			    "data": [
+			        {
+			            "name": "test"
+			        },
+			        {
+			            "name": "test1"
+			        }
+			    ],
+			    "first_page_url": "http://127.0.0.1:8000/topics?page=1",
+			    "from": 1,
+			    "last_page": 1,
+			    "last_page_url": "http://127.0.0.1:8000/topics?page=1",
+			    "links": [
+			        {
+			            "url": null,
+			            "label": "&laquo; Previous",
+			            "active": false
+			        },
+			        {
+			            "url": "http://127.0.0.1:8000/topics?page=1",
+			            "label": "1",
+			            "active": true
+			        },
+			        {
+			            "url": null,
+			            "label": "Next &raquo;",
+			            "active": false
+			        }
+			    ],
+			    "next_page_url": null,
+			    "path": "http://127.0.0.1:8000/topics",
+			    "per_page": 25,
+			    "prev_page_url": null,
+			    "to": 2,
+			    "total": 2
+			}
 
 #### Create new Topic [POST]
 
@@ -88,17 +88,17 @@ You may add your own topics using this action. It takes a JSON object containing
 
 	+ Body
 
-		{
-			"name": "topic1"
-		}
+			{
+				"name": "topic1"
+			}
 
 + Response 201 (application/json)
 	
 	+ Body
 
-		{
-			"name": "topic1"
-		}
+			{
+				"name": "topic1"
+			}
 
 
 ### Subscribe Endpoint [/subscribe/{topic}]
@@ -111,18 +111,18 @@ You may add your own subscribtion to a topic using this action. It takes a JSON 
 
 	+ Body
 
-		{
-			"url": "http://test.com"
-		}
+			{
+				"url": "http://test.com"
+			}
 
 + Response 201 (application/json)
 
 	+ Body
 
-		{
-			"url": "http://test.com",
-			"topic": "{topic}"
-		}
+			{
+				"url": "http://test.com",
+				"topic": "{topic}"
+			}
 
 ### Publish Endpoint [/publish/{topic}]
 
@@ -134,18 +134,18 @@ This end point stores item published to topic in the database and posts this ite
 
 	+ Body
 
-		{
-			[key: string]: any
-		}
+			{
+				[key: string]: any
+			}
 
 + Response 201 (application/json)
 
 	+ Body
 
-		{
-			"topic": "{topic}",
-			"data": [object] // whatever data was sent in the publish body
-		}
+			{
+				"topic": "{topic}",
+				"data": [object] // whatever data was sent in the publish body
+			}
 
 
 ## Subscriber App Start Up Steps
@@ -168,3 +168,73 @@ php artisan migrate
 ```bash
 php artisan serve --port=9000
 ```
+
+## Subscriber App Documentation
+
+This contains a light documentation explaining how the available endpoints work.
+
+### Test1 Endpoint [/test1]
+
+#### View most recent Notification for subscribed Topic [GET]
+
++ Response 200 (application/json)
+
+	+ Body
+
+			{
+				"topic": "{topic}",
+				"data": [object] // whatever data was sent in the publish body
+			}
+
+#### Create new Notification for subscribed Topic [POST]
+
++ Request (application/json)
+
+	+ Body
+
+			{
+				"topic": "{topic}",
+				"data": [object] // whatever data was sent in the publish body
+			}
+
++ Response 201 (application/json)
+
+	+ Body
+
+			{
+				"topic": "{topic}",
+				"data": [object] // whatever data was sent in the publish body
+			}
+
+### Test2 Endpoint [/test2]
+
+#### View most recent Notification for subscribed Topic [GET]
+
++ Response 200 (application/json)
+
+	+ Body
+
+			{
+				"topic": "{topic}",
+				"data": [object] // whatever data was sent in the publish body
+			}
+
+#### Create new Notification for subscribed Topic [POST]
+
++ Request (application/json)
+
+	+ Body
+
+			{
+				"topic": "{topic}",
+				"data": [object] // whatever data was sent in the publish body
+			}
+
++ Response 201 (application/json)
+
+	+ Body
+
+			{
+				"topic": "{topic}",
+				"data": [object] // whatever data was sent in the publish body
+			}
