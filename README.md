@@ -11,7 +11,11 @@ Please follow these steps to get the publisher app running. If these steps are n
 3 **Step 3**: The `.env` file configuration in the `.env.example` file has already been set up for `sqlite`. If there is not a `database.sqlite` file present in the database folder create one.
 If you are going to use your system's local `mysql` database, update the database section of your `.env` file to match the configurations of your local machine.
 
-4 **Step 4**: Open a new terminal in the publisher-app folder and run the commands in the listed order to create the database tables and seed the topics table:
+4 **Step 4**: Open a new terminal in the publisher-app folder and run the commands in the listed order to install componser requirements and create the database tables and seed the topics table:
+```bash
+composer install
+```
+
 ```bash
 php artisan migrate
 ```
@@ -159,7 +163,11 @@ Please follow these steps to get the subscriber app running. If these steps are 
 3 **Step 3**: The `.env` file configuration in the `.env.example` file has already been set up for `sqlite`. If there is not a `database.sqlite` file present in the database folder create one.
 If you are going to use your system's local `mysql` database, update the database section of your `.env` file to match the configurations of your local machine.
 
-4 **Step 4**: Open a new terminal in the subscriber-app folder and run the command below in order to create the database tables
+4 **Step 4**: Open a new terminal in the subscriber-app folder and run the commands below in order to install componser requirements and create the database tables
+```bash
+composer install
+```
+
 ```bash
 php artisan migrate
 ```
