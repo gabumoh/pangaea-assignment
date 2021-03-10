@@ -61,3 +61,15 @@ Route::delete('/topic', function () {
 
 // Publish Routes
 Route::post('/publish/{topic}', [TopicBodyController::class, 'publish']);
+Route::get('/publish/{topic}', function () {
+	return response()->json(['message' => 'Method not allowed!'], 405);
+});
+Route::put('/publish/{topic}', function () {
+	return response()->json(['message' => 'Method not allowed!'], 405);
+});
+Route::patch('/publish/{topic}', function () {
+	return response()->json(['message' => 'Method not allowed!'], 405);
+});
+Route::delete('/publish/{topic}', function () {
+	return response()->json(['message' => 'Method not allowed!'], 405);
+});

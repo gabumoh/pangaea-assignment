@@ -7,6 +7,7 @@ use App\Models\Subscription;
 use App\Models\Topic;
 use App\Models\TopicBody;
 use Validator;
+use App\Jobs\ProcessNotificationJob;
 
 class TopicBodyController extends Controller
 {
@@ -19,7 +20,7 @@ class TopicBodyController extends Controller
     		$input = $request->all();
     		$keys = array_keys($input);
     		for ($i=0; $i < count($input); $i++) { 
-    			if (empty($input[$i])) {
+    			if (empty($input[$keys[$i]])) {
     				$errors[$keys[$i]] = "This field cannot be empty";
     			}
     		}
@@ -50,6 +51,8 @@ class TopicBodyController extends Controller
     		'topic' => $published_body->topic,
     		'data' => unserialize($published_body->data)
     	];
+
+        ProcessNotificationJob::dispatch($new_data);
 
     	return response()->json($new_data, 201);
     }
